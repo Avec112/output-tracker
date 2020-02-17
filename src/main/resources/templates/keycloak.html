@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/general.html :: headerfiles"></head>
+<body>
+<nav th:replace="/fragments/general.html :: nav('keycloak')"></nav>
+<div class="container">
+    <!--/*@thymesVar id="isKeycloakEnabled" type="java.lang.Boolean"*/-->
+    <h3 th:switch="${isKeycloakEnabled}">
+        Is Keycloak Security enabled?
+        <span class="badge badge-success" th:case="true">Yes</span>
+        <span class="badge badge-danger" th:case="false">No</span>
+    </h3>
+    <p>Please see
+        <mark>application.properties</mark>
+        and property
+        <mark>keycloak.enabled</mark>
+        to change value.
+    </p>
+</div>
+</body>
+</html>

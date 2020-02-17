@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+    <!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+
+    <title>Welcome to Output Tracker</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+
+<body>
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-light mb-2">-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" th:fragment="nav(active)">
+    <a class="navbar-brand" href="/">
+        <img height="30" src="/image/radar-512.png" width="30">
+        Output Tracker
+    </a>
+
+    <ul class="navbar-nav mr-auto">
+        <li th:class="${#strings.equalsIgnoreCase(active,'home')}?'nav-item active':'nav-item'">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li th:class="${#strings.equalsIgnoreCase(active,'output')}?'nav-item active':'nav-item'">
+            <a class="nav-link" href="/output">Log</a>
+        </li>
+        <li th:class="${#strings.equalsIgnoreCase(active,'keycloak')}?'nav-item active':'nav-item'">
+            <a class="nav-link" href="/keycloak">Keycloak</a>
+        </li>
+    </ul>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <!--/*@thymesVar id="isKeycloakEnabled" type="java.lang.Boolean"*/-->
+            <a class="nav-link" href="/keycloak" th:switch="${isKeycloakEnabled}">
+                <span class="badge badge-success" th:case="true">Keycloak enabled</span>
+                <span class="badge badge-danger" th:case="false">Keycloak disabled</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<footer th:fragment="footer">
+    <script th:src="@{webjars/jquery/3.0.0/jquery.js}" type="text/javascript"></script>
+    <!--    <script type="text/javascript" th:src="@{webjars/popper.js/1.14.3/popper.js}"></script>-->
+    <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>-->
+</footer>
+</body>
+</html>

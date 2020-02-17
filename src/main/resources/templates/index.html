@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/general.html :: headerfiles"></head>
+<body>
+<nav th:replace="/fragments/general.html :: nav('home')"></nav>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Output Tracker</h1>
+        <p class="lead">Welcome to <em>Output Tracker</em>, a simple tool for receiving and displaying outputted
+            payloads.</p>
+        <hr class="my-4">
+        <p>Your application sends output information to <em>Output Tracker</em> simulating a production system.
+            All received output information is stored in <em>Output Trackers</em> database.
+            All output is then done available in a output log.</p>
+        <p>Accessing <em>Log</em> page requires authentication.</p>
+        <a class="btn btn-primary btn-lg" href="/output">Log</a>
+    </div>
+</div>
+</body>
+</html>
