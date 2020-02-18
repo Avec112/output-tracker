@@ -9,20 +9,21 @@ Log page. Here the tester can view all incoming outputs in order.
 
 ### Requirements
 (More what I have used)
-* Java 13 (Ithink java 8 will be ok)
+* Java 13 (I think java 8 will be ok)
 * Maven 3.5+
 * Spring Boot 2.2.4
 * Keycloak 8.0.2
 
 ## Application
 The application is built with Spring Boot, Spring Data JPA, H2, Thymeleaf, Bootstrap and more.
-There is a REST interface and a Web interface.
+There is a REST interface and a Web interface documentet by Swagger.
 
 ### REST interface
 Output Tracker has a REST api supporting POST. 
-
-#### API POST endpoint
 * POST url: http://localhost:8081/v1/output if started locally
+
+See Swagger UI at http://localhost:8081/swagger-ui.html for Api Documentation.\
+*) **Note!** Posting from Swagger will not work when `keycloak.enabled=false`
 
 #### Payload
 **Example of valid payload**
@@ -126,5 +127,4 @@ I am using [Postman](https://www.postman.com/downloads/) for testing.
 
 ## TODO
 * Add Spring Security
-* Add Swagger support
 
