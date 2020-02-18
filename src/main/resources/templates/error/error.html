@@ -1,12 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Error is what happened!</title>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-</head>
+<head th:replace="/fragments/general.html :: headerfiles"></head>
 <body>
-<h1 th:text="${errorCode}"></h1>
-<p th:text="${errorReason}"></p>
-<p th:text="${errorExceptionMsg}"></p>
+<nav th:replace="/fragments/general.html :: nav('home')"></nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${errorCode}"></h1>
+        <p class="lead" th:text="${errorReason}"></p>
+        <hr class="my-4">
+        <p th:text="${errorExceptionMsg}"></p>
+    </div>
+</div>
 </body>
 </html>
