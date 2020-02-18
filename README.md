@@ -16,7 +16,7 @@ Log page. Here the tester can view all incoming outputs in order.
 
 ## Application
 The application is built with Spring Boot, Spring Data JPA, H2, Thymeleaf, Bootstrap and more.
-There is a REST interface and a Web interface documentet by Swagger.
+There is a REST interface and a Web interface documented by Swagger.
 
 ### REST interface
 Output Tracker has a REST api supporting POST. 
@@ -127,4 +127,5 @@ I am using [Postman](https://www.postman.com/downloads/) for testing.
 
 ## TODO
 * Add Spring Security
+* Add Swagger support
 
