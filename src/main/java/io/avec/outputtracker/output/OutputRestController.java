@@ -1,7 +1,5 @@
-package io.avec.outputtracker.service.track;
+package io.avec.outputtracker.output;
 
-import io.avec.outputtracker.service.output.Output;
-import io.avec.outputtracker.service.output.OutputRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

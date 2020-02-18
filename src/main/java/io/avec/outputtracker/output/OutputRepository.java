@@ -1,4 +1,4 @@
-package io.avec.outputtracker.service.output;
+package io.avec.outputtracker.output;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

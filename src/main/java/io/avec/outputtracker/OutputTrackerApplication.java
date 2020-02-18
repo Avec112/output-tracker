@@ -2,10 +2,10 @@ package io.avec.outputtracker;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.avec.outputtracker.service.output.EventType;
-import io.avec.outputtracker.service.output.Output;
-import io.avec.outputtracker.service.output.OutputRepository;
-import io.avec.outputtracker.service.output.PayloadType;
+import io.avec.outputtracker.output.EventType;
+import io.avec.outputtracker.output.Output;
+import io.avec.outputtracker.output.OutputRepository;
+import io.avec.outputtracker.output.PayloadType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

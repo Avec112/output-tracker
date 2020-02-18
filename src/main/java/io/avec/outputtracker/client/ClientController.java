@@ -1,7 +1,7 @@
 package io.avec.outputtracker.client;
 
-import io.avec.outputtracker.service.output.Output;
-import io.avec.outputtracker.service.output.OutputRepository;
+import io.avec.outputtracker.output.Output;
+import io.avec.outputtracker.output.OutputRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
