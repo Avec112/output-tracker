@@ -13,6 +13,14 @@ Log page. Here the tester can view all incoming outputs in order.
 * Maven 3.5+
 * Spring Boot 2.2.4
 * Keycloak 8.0.2
+* Keycloak Spring Boot Adapter 8.0.2
+
+:warning: If Keycloack is upgraded to a newer version there is a big chance that you must update
+the Keycloak Adapter aswell. This could be a big problem when you have a whole bunch of microservices.
+
+This [article by Arun B. Chandrasekaran](https://medium.com/@bcarunmail/securing-rest-api-using-keycloak-and-spring-oauth2-6ddf3a1efcc2)
+solves this problem by using Spring OAuth2 which integrates with Keycloak at protocol level (less likely to change).
+
 
 ## Application
 The application is built with Spring Boot, Spring Data JPA, H2, Thymeleaf, Bootstrap and more.
