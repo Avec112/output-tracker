@@ -28,7 +28,7 @@ There is a REST interface and a Web interface documented by Swagger.
 
 ### REST interface
 Output Tracker has a REST api supporting POST. 
-* POST url: http://localhost:8081/api/v1/output if started locally
+* POST url: http://localhost:8081/api/v1/log if started locally
 
 See Swagger UI at http://localhost:8081/swagger-ui.html for Api Documentation.\
 *) **Note!** Posting from Swagger will not work when `keycloak.enabled=false`
@@ -83,7 +83,7 @@ Do not know why this failed me.
 * Open `application.properties`
 * Set `keycloak.credentials.secret = [Keycloak Admin > Realm Settings > Keys > pick any and paste here]`
 
-To access http://localhost:8081/output you must be authenticated.
+To access http://localhost:8081/log you must be authenticated.
  
  
 ## FAQ
@@ -92,12 +92,13 @@ To access http://localhost:8081/output you must be authenticated.
 Open application.properties and enable/disable the property `keycloak.enable=false` or set true/false.
 
 ### What is protected by Keycloak?
-For this demonstration only `/output` and the user must have role `user`.
+For this demonstration `/log` and `/api/*`. The user must have role `user`.
 Se `application.properties` for details. 
 ```
 # Application security constraints
 keycloak.securityConstraints[0].authRoles[0] = user
-keycloak.securityConstraints[0].securityCollections[0].patterns[0] = /output
+keycloak.securityConstraints[0].securityCollections[0].patterns[0] = /log
+keycloak.securityConstraints[0].securityCollections[0].patterns[1] = /api/*
 ```
 ### How to start Keycloak?
 If you downloaded and unzipped Keycloak go to keycloack-8.0.2/bin and run standalone.bat or standalone.sh.

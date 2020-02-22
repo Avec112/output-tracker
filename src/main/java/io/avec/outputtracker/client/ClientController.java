@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -24,13 +25,10 @@ public class ClientController {
         return "index";
     }
 
-    @RequestMapping("/output")
+    @RequestMapping("/log")
     public String output(Model model) {
-
-        Iterable<Output> all = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-        log.debug("{}", all);
-        model.addAttribute("list", all);
-        return "output";
+        findAll(model);
+        return "log";
     }
 
     @RequestMapping("/keycloak")
@@ -38,4 +36,15 @@ public class ClientController {
         return "keycloak";
     }
 
+    @GetMapping("/logtablebody")
+    public String tableBody(Model model) {
+        findAll(model);
+        return "/fragments/Log :: table-body";
+    }
+
+    private void findAll(Model model) {
+        Iterable<Output> all = repository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+//        log.debug("{}", all);
+        model.addAttribute("list", all);
+    }
 }

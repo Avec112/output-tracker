@@ -23,9 +23,9 @@ public class Output {
     @NonNull
     private String endpoint; // where we send the payload
     @NonNull
-    private EventType eventType;
+    private String eventType;
     @NonNull
-    private PayloadType payloadType;
+    private String payloadType;
     @NonNull
     private String payload;
 

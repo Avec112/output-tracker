@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/general.html :: headerfiles"></head>
+<body>
+<nav th:replace="/fragments/general.html :: nav('log')"></nav>
+<div class="container">
+    <div class="col-lg-12">
+        <table class="table table-sm table-striped">
+            <thead>
+            <tr>
+                <th> Id</th>
+                <th> Time</th>
+                <th> User</th>
+                <th> Endpoint</th>
+                <th> Event type</th>
+                <th> Payload type</th>
+                <th> Payload</th>
+            </tr>
+            </thead>
+            <tbody th:replace="/fragments/log :: table-body"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<div th:replace="/fragments/bootstrap :: modal"></div>
+<div th:replace="/fragments/bootstrap :: toast"></div>
+
+
+<footer th:replace="/fragments/general.html :: footer"></footer>
+<script th:inline="javascript">
+
+    // Open modal when table row button is clicked
+    // When altering dom(reload table-body) .click() did now work. Had to use .delegate()
+    $('body').delegate('#table-body-fragment button', 'click', function () {
+        var id = $(this).attr('value');
+        $.get('/api/v1/payload/' + id, function (data) {
+            $('.modal-title').text("Id = " + id);
+            $('.modal-body pre').text(data);
+            $('#exampleModal').modal('show');
+        }).fail(function (data) {
+            // console.dir(data);
+            $('.toast-body').text(data.status + ': ' + data.responseText);
+            $('#toast').toast('show');
+            doRefresh = true;
+        });
+    });
+
+    // reload table-body
+    setInterval(function () {
+        $.get('/logtablebody', function (tableBody) {
+            $('#table-body-fragment').replaceWith(tableBody);
+        });
+    }, 5000);
+
+</script>
+</body>
+</html>

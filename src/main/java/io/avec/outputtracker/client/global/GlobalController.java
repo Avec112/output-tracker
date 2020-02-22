@@ -25,10 +25,10 @@ public class GlobalController {
         try {
             // will throw exception if not found
             KeycloakSpringBootProperties properties = context.getBean(KeycloakSpringBootProperties.class);
-            log.debug("Keycloak {} enabled", properties.isEnabled() ? "is" : "is not");
+//            log.debug("Keycloak {} enabled", properties.isEnabled() ? "is" : "is not");
             return properties.isEnabled();
         } catch (NoSuchBeanDefinitionException e) {
-            log.warn("Keycloak is not enabled!");
+//            log.warn("Keycloak is not enabled!");
         }
         return false;
     }

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tbody th:fragment="table-body" id="table-body-fragment">
+            <tr th:each="item : ${list}">
+                <td th:text="${item.id}"> Id </td>
+                <td th:text="${item.dateTime}"> Time </td>
+                <td th:text="${item.username}"> User </td>
+                <td th:text="${item.endpoint}"> Endpoint </td>
+                <td th:text="${item.eventType}"> Event type </td>
+                <td th:text="${item.payloadType}"> Payload type </td>
+                <td><button type="button" class="btn btn-secondary btn-sm" th:value="${item.id}">Payload</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
