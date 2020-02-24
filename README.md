@@ -5,7 +5,7 @@ endpoint. Output Tracker has a REST endpoint where you application can send the 
 Output Tracker store all received output information in a database. The tester can then open Output Trackers 
 Log page. Here the tester can view all incoming outputs in order. 
 
-:warning: **Note! Keycloak is enabled by default.**
+:warning: **Note! Keycloak is disabled by default.**
 
 ### Requirements
 (More what I have used)
